@@ -44,6 +44,7 @@ import time
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
+import paths
 import tiling_config as TC
 from ablations import (BLIND, CONTAM, CORPUS, DUAL_SOURCE, HELD_OUT, OUT,
                        REQUIRED_HASH, SLIDING, STUDY_SCALES, assert_c1, assert_c3,
@@ -159,7 +160,7 @@ def build_conditions():
     # labels (4 slides, single `10xv25` generation per the agreed design) and
     # evaluate on a FIFTH slide's fabricated tiles, held OUT of training (C1 holds),
     # PLUS the same honest BFD_1 slide every other condition uses.
-    HEAVY = r"C:\placenta_ssd\tiles_contam_heavy"
+    HEAVY = paths.TILES_CONTAM_HEAVY
     heavy_eval_slide = "S.3152_26_A3FD_1"
     heavy_train_slides = ["A2FD_1_S.2058_26", "A3_FD_1", "S.2016_26_A3_FD_1",
                           "S.2723_26_A2_FD_1"]

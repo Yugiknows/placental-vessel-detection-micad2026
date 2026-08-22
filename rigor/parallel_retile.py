@@ -26,7 +26,9 @@ from multiprocessing import Pool, cpu_count
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-OUT_ROOT_DEFAULT = r"D:\windows_gpu_migration\placenta_training_clean"
+import paths
+
+OUT_ROOT_DEFAULT = paths.PLACENTA_TRAINING_CLEAN
 
 
 def _worker(task):

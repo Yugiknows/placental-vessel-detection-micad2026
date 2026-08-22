@@ -44,9 +44,11 @@ import time
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-HEAVY = r"C:\placenta_ssd\tiles_contam_heavy"
-CONTAM_DIR = r"C:\placenta_ssd\slides_contam"
-CLEAN_SLIDES = r"C:\placenta_ssd\slides"
+import paths
+
+HEAVY = paths.TILES_CONTAM_HEAVY
+CONTAM_DIR = paths.SLIDES_CONTAM
+CLEAN_SLIDES = paths.SLIDES
 STUDY_SCALES = ("10x", "20x", "40x")
 
 # ALL from the 10xv25 generation — one generator, train and eval alike.

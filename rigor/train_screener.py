@@ -30,8 +30,10 @@ warnings.filterwarnings("ignore")
 
 from ultralytics import YOLO
 
-DATA = r"C:\placenta_ssd\screener\screener.yaml"
-OUT = r"C:\placenta_ssd\screener"
+import paths
+
+DATA = paths.SCREENER_YAML
+OUT = paths.SCREENER_DIR
 
 
 def main():

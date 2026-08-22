@@ -23,8 +23,10 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-SRC_ROOT = r"D:\windows_gpu_migration\placenta_training"
-DST_ROOT = r"D:\windows_gpu_migration\placenta_training_clean"
+import paths
+
+SRC_ROOT = paths.PLACENTA_TRAINING
+DST_ROOT = paths.PLACENTA_TRAINING_CLEAN
 
 SPLITS = ["train/positives", "train/negatives", "val"]
 

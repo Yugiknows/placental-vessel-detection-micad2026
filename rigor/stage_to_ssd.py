@@ -20,10 +20,11 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
+import paths
 from annotation_scale_report import discover_clean_sources
 from retile_clean import DEFAULT_SLIDES
 
-SSD_ROOT = r"C:\placenta_ssd"
+SSD_ROOT = paths.SSD_ROOT_STR
 SSD_SLIDES = os.path.join(SSD_ROOT, "slides")
 
 

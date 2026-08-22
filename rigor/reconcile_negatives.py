@@ -26,10 +26,11 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
+import paths
 import tiling_config as TC
 from slide_registry import load_clean_slides
 
-CORPUS = r"C:\placenta_ssd\tiles_v3"
+CORPUS = paths.TILES_V3
 
 
 def tiles_of(corpus, scale, split, sid):

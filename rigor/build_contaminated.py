@@ -21,11 +21,12 @@ import time
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
+import paths
 import tiling_config as TC
 from ablations import CONTAM, FABRICATED, STUDY_SCALES
 
-CLEAN_SLIDES_DIR = r"C:\placenta_ssd\slides"
-CONTAM_DIR = r"C:\placenta_ssd\slides_contam"
+CLEAN_SLIDES_DIR = paths.SLIDES
+CONTAM_DIR = paths.SLIDES_CONTAM
 
 # slide_id -> (ndpi filename, fabricated ndpa filename)
 SOURCES = {

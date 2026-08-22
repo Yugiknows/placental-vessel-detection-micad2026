@@ -26,10 +26,11 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
+import paths
 import tiling_config as TC
 from slide_registry import AllowListError, load_clean_slides, load_raw
 
-CORPUS = r"C:\placenta_ssd\tiles_v3"
+CORPUS = paths.TILES_V3
 SPLIT_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "splits_v3")
 MIN_EVAL_TILES = 5
 

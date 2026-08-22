@@ -31,10 +31,11 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
+import paths
 from slide_registry import SCALES, load_raw
 from tiling_fingerprint import slide_of
 
-DATA_ROOT = r"D:\windows_gpu_migration\placenta_training"
+DATA_ROOT = paths.PLACENTA_TRAINING
 LEDGER = os.path.join(os.path.dirname(os.path.abspath(__file__)), "tiles_ledger.csv")
 
 # Verification states.

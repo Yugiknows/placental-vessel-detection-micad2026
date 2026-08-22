@@ -38,15 +38,15 @@ import time
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
+import paths
 import numpy as np
 
 import tiling_config as TC
 
-CORPUS = r"C:\placenta_ssd\tiles_v3"
-SLIDES_ROOT = r"C:\placenta_ssd\slides"
-TRUSTED = (r"D:\windows_gpu_migration\Yolo11_training-yolo11_train_seg_classify"
-           r"\blood_vessel_best_BACKUP.pt")
-SCREENER = r"C:\placenta_ssd\screener\run\weights\best.pt"
+CORPUS = paths.TILES_V3
+SLIDES_ROOT = paths.SLIDES
+TRUSTED = paths.TRUSTED_MODEL
+SCREENER = paths.SCREENER_WEIGHTS
 
 SCALE = "5x"
 MARGIN_FRAC = 0.05      # relaxed from 0.25 (at 5x that was 4096 l0px)

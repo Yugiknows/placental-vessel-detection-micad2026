@@ -36,14 +36,14 @@ import time
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
+import paths
 import numpy as np
 
 import tiling_config as TC
 
-CORPUS = r"C:\placenta_ssd\tiles_v3"
-SLIDES_ROOT = r"C:\placenta_ssd\slides"
-MODEL = (r"D:\windows_gpu_migration\Yolo11_training-yolo11_train_seg_classify"
-         r"\blood_vessel_best_BACKUP.pt")
+CORPUS = paths.TILES_V3
+SLIDES_ROOT = paths.SLIDES
+MODEL = paths.TRUSTED_MODEL
 BATCH = 16
 
 
@@ -149,7 +149,7 @@ def main():
     src = discover_clean_sources()
 
     # UNION of detectors. A vessel must fool ALL of them to reach the corpus.
-    SCREENER = r"C:\placenta_ssd\screener\run\weights\best.pt"
+    SCREENER = paths.SCREENER_WEIGHTS
     paths = [args.model]
     if os.path.exists(SCREENER):
         paths.append(SCREENER)

@@ -53,16 +53,17 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
+import paths
 import tiling_config as TC
 
 REQUIRED_HASH = "7b191fa9e02e"
 HELD_OUT = "BFD_1"
 
-CORPUS = r"C:\placenta_ssd\tiles_v3"                 # ratified, hand-reviewed
-SLIDING = r"C:\placenta_ssd\training_clean"          # the OLD sliding-window tiles
-CONTAM = r"C:\placenta_ssd\tiles_contaminated"       # built by --build-contaminated
-BLIND = r"C:\placenta_ssd\tiles_blind_neg"           # built by --build-blind-negatives
-OUT = r"C:\placenta_ssd\ablations"
+CORPUS = paths.TILES_V3                 # ratified, hand-reviewed
+SLIDING = paths.TRAINING_CLEAN          # the OLD sliding-window tiles
+CONTAM = paths.TILES_CONTAMINATED       # built by --build-contaminated
+BLIND = paths.TILES_BLIND_NEG           # built by --build-blind-negatives
+OUT = paths.ABLATIONS
 
 STUDY_SCALES = ("10x", "20x", "40x")                 # 5x EXCLUDED (brief §0.2)
 
@@ -79,7 +80,7 @@ DUAL_SOURCE = ["A2FD_1_S.2058_26", "S.2723_26_A2_FD_1"]
 # the three with no clean .ndpa anywhere -> only exist in the contaminated corpus
 LOST_ONLY = ["S.3152_26_A3FD_1", "A3_FD_1", "S.2016_26_A3_FD_1"]
 
-SLIDES_DRIVE = r"D:\PLACENTA SLIDES"
+SLIDES_DRIVE = paths.SLIDES_DRIVE_STR
 
 
 # ── guards ───────────────────────────────────────────────────────────────────

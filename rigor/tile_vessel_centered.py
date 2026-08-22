@@ -35,10 +35,11 @@ from multiprocessing import Pool, cpu_count
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
+import paths
 import tiling_config as TC
 
-OUT_ROOT = r"C:\placenta_ssd\tiles_v3"          # SSD: D: is a spinning HDD
-SLIDES_ROOT = r"C:\placenta_ssd\slides"
+OUT_ROOT = paths.TILES_V3          # SSD: D: is a spinning HDD
+SLIDES_ROOT = paths.SLIDES
 
 
 # ── one (slide, scale) unit ───────────────────────────────────────────────────

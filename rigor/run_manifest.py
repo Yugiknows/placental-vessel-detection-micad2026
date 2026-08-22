@@ -26,11 +26,12 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
+import paths
 import tiling_config as TC
 
 RIGOR = os.path.dirname(os.path.abspath(__file__))
 SPLITS = os.path.join(RIGOR, "splits_v3")
-RUNS_ROOT = r"C:\placenta_ssd\runs_v3"
+RUNS_ROOT = paths.RUNS_V3
 MANIFEST = os.path.join(RIGOR, "run_manifest.json")
 
 ARCHS = ("single_allmag", "per_mag_3x")

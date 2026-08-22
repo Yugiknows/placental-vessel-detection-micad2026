@@ -27,6 +27,7 @@ from collections import defaultdict
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
+import paths
 import openslide
 
 from contamination_audit import audit_ndpa
@@ -34,7 +35,7 @@ from prepare_training_tiles import parse_ndpa_bboxes
 
 # Override with PLACENTA_SLIDES_ROOT to read from the NVMe SSD staging copy
 # (D: is a spinning HDD — see rigor/stage_to_ssd.py for why that matters).
-SLIDES_ROOT = os.environ.get("PLACENTA_SLIDES_ROOT", r"D:\PLACENTA SLIDES")
+SLIDES_ROOT = paths.SLIDES_DRIVE_STR
 
 # (min_l0, max_l0 or None) — must match prepare_training_tiles SCALE_CONFIGS
 # and prepare_5x_tiles.

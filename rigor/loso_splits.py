@@ -27,10 +27,11 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
+import paths
 from slide_registry import SCALES, AllowListError, load_clean_slides, load_raw
 from tiling_fingerprint import slide_of
 
-DATA_ROOT = r"D:\windows_gpu_migration\placenta_training"
+DATA_ROOT = paths.PLACENTA_TRAINING
 OUT_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "splits")
 
 # A held-out slide with fewer than this many positive tiles yields a per-slide

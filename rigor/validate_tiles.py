@@ -24,6 +24,7 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
+import paths
 import tiling_config as TC
 
 EDGE_TOL = 0.005          # within 0.5% of the border counts as touching
@@ -102,7 +103,7 @@ def report(root, label):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--root", default=r"C:\placenta_ssd\tiles_v3")
+    ap.add_argument("--root", default=paths.TILES_V3)
     ap.add_argument("--compare", action="store_true",
                     help="compare v3 against the old grid tiling + the hand corpus")
     args = ap.parse_args()
@@ -112,9 +113,9 @@ def main():
         print("\nVERDICT:", "framing OK" if ok else "*** FRAMING STILL BAD ***")
         return
 
-    report(r"C:\placenta_ssd\training_clean",
+    report(paths.TRAINING_CLEAN,
            "OLD: whole-slide sliding window (the bad one)")
-    report(r"D:\windows_gpu_migration\placenta_training",
+    report(paths.PLACENTA_TRAINING,
            "REFERENCE: original hand-curated corpus")
     ok = report(args.root, "NEW: vessel-centred v3 (the fix)")
     print("\nLower `vessel ON EDGE` = the vessel is whole and framed, not cut by "

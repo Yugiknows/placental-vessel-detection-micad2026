@@ -29,8 +29,10 @@ import subprocess
 import sys
 import time
 
+import paths
+
 RIGOR = os.path.dirname(os.path.abspath(__file__))
-LOG = r"C:\placenta_ssd\ablations_detached.log"
+LOG = paths.ABLATIONS_LOG
 
 
 def main():

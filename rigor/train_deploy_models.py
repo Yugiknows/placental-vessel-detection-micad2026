@@ -36,10 +36,11 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
+import paths
 import tiling_config as TC
 
-CORPUS = r"C:\placenta_ssd\tiles_v3"
-OUT = r"C:\placenta_ssd\deploy_models"
+CORPUS = paths.TILES_V3
+OUT = paths.DEPLOY_MODELS
 
 EPOCHS = 300
 PATIENCE = 60

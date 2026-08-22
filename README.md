@@ -8,6 +8,34 @@ Springer Lecture Notes in Electrical Engineering. DOI: TODO on publication.
 
 ---
 
+## The two branches
+
+**You are on `portable`. Check this branch out to run the code.**
+
+| branch | what it is |
+|---|---|
+| `main` | Every file byte-identical to what produced the published results. The runs predate version control, so there is no commit hash tying source to results; byte-identity against the archived manifests is the whole provenance argument, and editing anything would end it. `main` is the archival record and is not meant to be run. |
+| `portable` | `main`, plus `rigor/paths.py`, plus the narrowest possible edit to 25 modules so the machine-specific roots come from the environment instead of being hard coded. Nothing else differs. |
+
+`git diff main..portable` is therefore a precise record of exactly what was machine
+specific about this code — 49 path literals in 25 modules, and nothing else.
+
+`rigor/paths.py` resolves five roots, each from an environment variable falling back to
+the original Windows value. With no environment set, on Windows, every resolved string is
+identical to the literal on `main`, so behaviour there is unchanged. To run elsewhere:
+
+```bash
+export PLACENTA_SSD_ROOT=/path/to/placenta_ssd          # tiles_v3, ablations, screener, logs
+export PLACENTA_SLIDES_ROOT=/path/to/PLACENTA_SLIDES    # the .ndpi/.ndpa slide drive
+export PLACENTA_BACKUP_ROOT=/path/to/placenta_BACKUP    # backup.py's DEST_ROOT
+export PLACENTA_MIGRATION_ROOT=/path/to/windows_gpu_migration
+export PLACENTA_REPO_ROOT=/path/to/this/checkout        # <REPO> in the archived args.yaml
+
+python rigor/paths.py    # print the resolved values for the current environment
+```
+
+---
+
 ## What this is
 
 We set out to train a blood vessel detector on H&E stained placental whole slide images.
@@ -181,8 +209,11 @@ existence, but what changed before it is unrecoverable.
    around the sliver. Compare `MIN_VISIBLE_FRAC = 0.35` in the vessel centered tiler.
 3. **C3 verification is unaffected** by that exclusion. The chain `tiling_config.py` to
    `tiling_fingerprint.py` to `assert_c3()` does not touch it.
-4. **25 modules hard code absolute Windows paths** and will not run unmodified on another
-   machine. They are enumerated in `RELEASE_AUDIT.md`.
+4. **The machine-specific paths are configurable on this branch, and hard coded on
+   `main`.** The 25 modules enumerated in `RELEASE_AUDIT.md` read their roots from
+   `rigor/paths.py` here; on `main` the same 25 carry the original Windows literals and
+   will not run unmodified elsewhere. Setting no environment variable reproduces the
+   original Windows paths exactly.
 5. **The corpus is not in this repository.** See below.
 6. **The 264 cell grid was never run.** It is specified in the paper (2x2x3 over
    architecture, mosaic, and seed, under leave one slide out across 11 folds, roughly 38 GPU

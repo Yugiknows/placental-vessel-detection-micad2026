@@ -29,11 +29,13 @@ import sys
 import time
 from datetime import datetime
 
+import paths
+
 RIGOR = os.path.dirname(os.path.abspath(__file__))
 HANDOFF = os.path.join(os.path.dirname(RIGOR), "handoff")
 RUNS = os.path.join(HANDOFF, "runs")
 LOG = os.path.join(HANDOFF, "RESEARCH_LOG.md")
-SUP_LOG = r"C:\placenta_ssd\supervisor.log"
+SUP_LOG = paths.SUPERVISOR_LOG
 
 ALL_RUNS = ["baseline", "A_contam_matched", "A_contam_asitwas", "A_contam_fabval",
             "B_sliding_window", "C_blind_negatives", "pilot_mosaic1"]
@@ -134,7 +136,7 @@ def supervise():
                     [sys.executable, "-u",
                      os.path.join(RIGOR, "run_ablations.py"), "--run-all"],
                     cwd=RIGOR,
-                    stdout=open(r"C:\placenta_ssd\ablations_detached.log", "a",
+                    stdout=open(paths.ABLATIONS_LOG, "a",
                                 buffering=1, encoding="utf-8", errors="replace"),
                     stderr=subprocess.STDOUT, stdin=subprocess.DEVNULL,
                     creationflags=(subprocess.DETACHED_PROCESS

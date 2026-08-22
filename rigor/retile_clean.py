@@ -23,13 +23,14 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
+import paths
 import openslide
 
 from annotation_scale_report import discover_clean_sources, GATES
 from prepare_training_tiles import parse_ndpa_bboxes, extract_tiles_for_scale
 from slide_registry import SCALES
 
-OUT_ROOT_DEFAULT = r"D:\windows_gpu_migration\placenta_training_clean"
+OUT_ROOT_DEFAULT = paths.PLACENTA_TRAINING_CLEAN
 
 # The slides to re-tile: 8 recovered/clean + 3 substantial new (from
 # slides_clean.yaml include + candidate_add). Tiny (<=3 annot) slides omitted.

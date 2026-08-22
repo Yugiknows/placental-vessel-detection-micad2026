@@ -23,13 +23,14 @@ import time
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
+import paths
 import numpy as np
 
 import tiling_config as TC
 from ablations import BLIND, STUDY_SCALES
 
-CORPUS = r"C:\placenta_ssd\tiles_v3"
-SLIDES_ROOT = r"C:\placenta_ssd\slides"
+CORPUS = paths.TILES_V3
+SLIDES_ROOT = paths.SLIDES
 
 
 def positives_on_disk(scale, sid):

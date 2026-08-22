@@ -24,12 +24,13 @@ import hashlib
 import json
 import os
 
+import paths
 from slide_registry import SCALES, load_clean_slides
 
 RIGOR_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECT_DIR = os.path.dirname(RIGOR_DIR)
 TILER_SRC = os.path.join(PROJECT_DIR, "prepare_training_tiles.py")
-DATA_ROOT = r"C:\placenta_ssd\tiles_v3"   # vessel-centred corpus (v3)
+DATA_ROOT = paths.TILES_V3   # vessel-centred corpus (v3)
 
 # Module-level tiling knobs to lift out of prepare_training_tiles.py.
 PARAM_NAMES = [

@@ -31,11 +31,13 @@ import time
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-SRC_TILES = r"C:\placenta_ssd\tiles_v3"
-SRC_SCREENER = r"C:\placenta_ssd\screener\run\weights\best.pt"
+import paths
+
+SRC_TILES = paths.TILES_V3
+SRC_SCREENER = paths.SCREENER_WEIGHTS
 SRC_RIGOR = os.path.dirname(os.path.abspath(__file__))
 
-DEST_ROOT = r"D:\placenta_BACKUP"
+DEST_ROOT = paths.BACKUP_ROOT_STR
 
 SCALES = ("10x", "20x", "40x", "5x")
 
