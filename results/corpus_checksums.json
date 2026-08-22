@@ -1,0 +1,38 @@
+{
+  "created": "20260712_062737",
+  "source": "<DATA>\\tiles_v3 (vessel_centered_v3, tiling_hash=7b191fa9e02e)",
+  "corpus": {
+    "10x/positives": {
+      "n_images": 753,
+      "label_hash": "648bcb18fedf56f7"
+    },
+    "10x/negatives": {
+      "n_images": 253,
+      "label_hash": "03d260d9fc1d6e2d"
+    },
+    "20x/positives": {
+      "n_images": 1543,
+      "label_hash": "9f54f21631817cbd"
+    },
+    "20x/negatives": {
+      "n_images": 755,
+      "label_hash": "d5420bc61cbc6af3"
+    },
+    "40x/positives": {
+      "n_images": 1244,
+      "label_hash": "d6b25b92a4c9b282"
+    },
+    "40x/negatives": {
+      "n_images": 1244,
+      "label_hash": "ed2f18c5a30ab909"
+    },
+    "5x/positives": {
+      "n_images": 54,
+      "label_hash": "788f27fea920be68"
+    },
+    "5x/negatives": {
+      "n_images": 59,
+      "label_hash": "feae3933088c1716"
+    }
+  }
+}

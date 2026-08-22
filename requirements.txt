@@ -1,0 +1,36 @@
+# Environment recorded in every run manifest (runs/*/manifest.json):
+#     python       3.12.10
+#     ultralytics  8.4.91
+#
+# Only `ultralytics` has a version recorded in the experimental record, so it is
+# the only package pinned here. The remaining versions were NOT captured at run
+# time and are deliberately left unpinned rather than guessed — pinning a version
+# that was never recorded would misrepresent the environment.
+#
+# This list was derived by reading the imports in rigor/*.py, not from a pip
+# freeze of the author's machine.
+
+# --- training / inference -----------------------------------------------------
+ultralytics==8.4.91          # detector training + inference; version is recorded
+torch                        # rigor/train_run.py (also an ultralytics dependency)
+
+# --- whole-slide and image I/O ------------------------------------------------
+openslide-python             # reads .ndpi pyramids: tile_vessel_centered.py,
+                             #   regen_negatives.py, retile_clean.py,
+                             #   parallel_retile.py, build_blind_negatives.py,
+                             #   topup_5x_negatives.py, preannotate_labelimg.py,
+                             #   annotation_scale_report.py
+                             # NOTE: also needs the OpenSlide C library present
+                             #   on the system (not installable via pip alone).
+Pillow                       # imported as PIL: regen_negatives.py,
+                             #   topup_5x_negatives.py
+numpy                        # tile geometry / screening arithmetic
+
+# --- config and reporting -----------------------------------------------------
+PyYAML                       # imported as yaml: slide_registry.py (the C2
+                             #   allow-list loader) and the split writers
+matplotlib                   # rigor/build_handoff.py QC plots
+
+# --- annotation review GUI (development only; not needed to verify the corpus) -
+PyQt5                        # rigor/labelimg_launch.py
+labelImg                     # rigor/labelimg_launch.py

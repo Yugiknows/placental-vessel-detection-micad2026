@@ -1,0 +1,4 @@
+C:\placenta_ssd\tiles_v3\training_data_10x\positives\images\S.2723_26_CFD_1_10x_0007941_0040087.png
+C:\placenta_ssd\tiles_v3\training_data_10x\positives\images\S.2723_26_CFD_1_10x_0009036_0023534.png
+C:\placenta_ssd\tiles_v3\training_data_10x\positives\images\S.2723_26_CFD_1_10x_0010698_0005567.png
+C:\placenta_ssd\tiles_v3\training_data_10x\negatives\images\S.2723_26_CFD_1_10x_0159744_0034816.png

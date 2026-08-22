@@ -1,0 +1,293 @@
+{
+  "generated": "2026-07-14 20:31",
+  "held_out_slide": {
+    "id": "BFD_1",
+    "why_chosen": "real, hand-verified, never fabricated, never recovered; 334 eval positives with vessels at all three scales (10x 37 / 20x 162 / 40x 135). S.2_723_26_A3_FD_1 has more eval tiles (1517) but is 43% of the corpus, so holding it out would cripple training and confound every comparison.",
+    "n_eval_images": 489
+  },
+  "corpus": {
+    "tiling_hash": "7b191fa9e02e",
+    "method": "vessel_centered_v3",
+    "n_slides": 11,
+    "n_study_tiles": 5792,
+    "scales": [
+      "10x",
+      "20x",
+      "40x"
+    ],
+    "5x": "EXCLUDED from all results"
+  },
+  "protocol": {
+    "arch": "single_allmag",
+    "mosaic": 0.0,
+    "seed": 0,
+    "imgsz": 1024,
+    "batch": 16,
+    "epochs_max": 300,
+    "patience": 60,
+    "eval": "identical held-out tiles for EVERY condition; only TRAINING data varies"
+  },
+  "ablations": {
+    "A_fabrication": {
+      "clean": {
+        "mAP50": 0.8902,
+        "mAP50_95": 0.6099,
+        "precision": 0.8931,
+        "recall": 0.8112,
+        "eval_slide": "BFD_1",
+        "seed": 0,
+        "epochs": 79,
+        "best_epoch_mAP50": 17,
+        "best_epoch_mAP50_95": 19,
+        "seconds_per_epoch": 100.2,
+        "manifest": "runs/baseline/manifest.json",
+        "results_csv": "runs/baseline/results.csv"
+      },
+      "contaminated_matched": {
+        "mAP50": 0.8916,
+        "mAP50_95": 0.6152,
+        "precision": 0.845,
+        "recall": 0.7895,
+        "eval_slide": "BFD_1",
+        "seed": 0,
+        "epochs": 76,
+        "best_epoch_mAP50": 25,
+        "best_epoch_mAP50_95": 16,
+        "seconds_per_epoch": 114.4,
+        "manifest": "runs/A_contam_matched/manifest.json",
+        "results_csv": "runs/A_contam_matched/results.csv"
+      },
+      "contaminated_asitwas": {
+        "mAP50": 0.8908,
+        "mAP50_95": 0.6126,
+        "precision": 0.857,
+        "recall": 0.8347,
+        "eval_slide": "BFD_1",
+        "seed": 0,
+        "epochs": 70,
+        "best_epoch_mAP50": 10,
+        "best_epoch_mAP50_95": 10,
+        "seconds_per_epoch": 122.9,
+        "manifest": "runs/A_contam_asitwas/manifest.json",
+        "results_csv": "runs/A_contam_asitwas/results.csv"
+      },
+      "contaminated_fabval": {
+        "mAP50": 0.8815,
+        "mAP50_95": 0.5989,
+        "precision": 0.9058,
+        "recall": 0.7647,
+        "eval_slide": "BFD_1",
+        "seed": 0,
+        "epochs": 80,
+        "best_epoch_mAP50": 24,
+        "best_epoch_mAP50_95": 20,
+        "seconds_per_epoch": 112.7,
+        "manifest": "runs/A_contam_fabval/manifest.json",
+        "results_csv": "runs/A_contam_fabval/results.csv",
+        "fabricated_val": {
+          "eval_slide": "S.3152_26_A3FD_1",
+          "eval_tiles": 519,
+          "mAP50": 0.1244,
+          "mAP50_95": 0.0335,
+          "precision": 0.2357,
+          "recall": 0.2447,
+          "labels": "MACHINE-GENERATED (fabricated) \u2014 NOT valid ground truth",
+          "interpretation": "this is the INFLATED score \u2014 the model is graded against another model's invented boxes. Compare it with the honest held-out score above. It is the controlled reproduction of the 0.705/0.780 leak, and is NOT a valid measure of detection quality."
+        }
+      },
+      "contaminated_heavy": {
+        "mAP50": 0.1939,
+        "mAP50_95": 0.0362,
+        "precision": 0.2681,
+        "recall": 0.3452,
+        "eval_slide": "BFD_1",
+        "seed": 0,
+        "epochs": 71,
+        "best_epoch_mAP50": 11,
+        "best_epoch_mAP50_95": 11,
+        "seconds_per_epoch": 27.7,
+        "manifest": "runs/A_contam_heavy/manifest.json",
+        "results_csv": "runs/A_contam_heavy/results.csv",
+        "fabricated_val": {
+          "eval_slide": "S.3152_26_A3FD_1",
+          "eval_tiles": 216,
+          "mAP50": 0.4569,
+          "mAP50_95": 0.191,
+          "precision": 0.5872,
+          "recall": 0.4542,
+          "labels": "MACHINE-GENERATED (fabricated) \u2014 NOT valid ground truth",
+          "interpretation": "this model was trained PREDOMINANTLY ON FABRICATED LABELS (4 slides, single 10xv25 generation). A high score here would be self-consistency \u2014 the model reproducing this generator's own invented boxes on a genuinely held-out slide from the SAME generation. Compare with the honest BFD_1 score above."
+        }
+      },
+      "_design": {
+        "causal_comparison": "clean  vs  contaminated_matched",
+        "paired_label_swap": {
+          "swapped_slides": [
+            "A2FD_1_S.2058_26",
+            "S.2723_26_A2_FD_1"
+          ],
+          "n_tiles_clean": 404,
+          "n_tiles_fabricated": 459,
+          "design": "identical slide list, identical vessel_centered_v3 tiler, identical negatives; ONLY the label source differs",
+          "clean_ndpa_boxes": {
+            "A2FD_1_S.2058_26": 200,
+            "S.2723_26_A2_FD_1": 27
+          },
+          "fabricated_ndpa_boxes": {
+            "A2FD_1_S.2058_26": 194,
+            "S.2723_26_A2_FD_1": 77
+          }
+        },
+        "contaminated_asitwas_CONFOUND": "reconstructs the pre-audit corpus (5 fabricated slides, ~24% of positives machine-invented) but carries 3 MORE training slides than the clean condition, because those slides were later dropped. Realistic magnitude, NOT a causal comparison.",
+        "fabrication_dose": {
+          "fabricated_tiles": 1131,
+          "real_study_positives": 3540,
+          "fraction_of_pre_audit_corpus": 0.24
+        }
+      }
+    },
+    "B_tiling": {
+      "vessel_centered": {
+        "mAP50": 0.8902,
+        "mAP50_95": 0.6099,
+        "precision": 0.8931,
+        "recall": 0.8112,
+        "eval_slide": "BFD_1",
+        "seed": 0,
+        "epochs": 79,
+        "best_epoch_mAP50": 17,
+        "best_epoch_mAP50_95": 19,
+        "seconds_per_epoch": 100.2,
+        "manifest": "runs/baseline/manifest.json",
+        "results_csv": "runs/baseline/results.csv"
+      },
+      "sliding_window": {
+        "mAP50": 0.8705,
+        "mAP50_95": 0.5986,
+        "precision": 0.8599,
+        "recall": 0.7786,
+        "eval_slide": "BFD_1",
+        "seed": 0,
+        "epochs": 96,
+        "best_epoch_mAP50": 36,
+        "best_epoch_mAP50_95": 36,
+        "seconds_per_epoch": 102.4,
+        "manifest": "runs/B_sliding_window/manifest.json",
+        "results_csv": "runs/B_sliding_window/results.csv"
+      }
+    },
+    "C_negatives": {
+      "screened_negatives": {
+        "mAP50": 0.8902,
+        "mAP50_95": 0.6099,
+        "precision": 0.8931,
+        "recall": 0.8112,
+        "eval_slide": "BFD_1",
+        "seed": 0,
+        "epochs": 79,
+        "best_epoch_mAP50": 17,
+        "best_epoch_mAP50_95": 19,
+        "seconds_per_epoch": 100.2,
+        "manifest": "runs/baseline/manifest.json",
+        "results_csv": "runs/baseline/results.csv"
+      },
+      "blind_negatives": {
+        "mAP50": 0.8679,
+        "mAP50_95": 0.602,
+        "precision": 0.8573,
+        "recall": 0.7864,
+        "eval_slide": "BFD_1",
+        "seed": 0,
+        "epochs": 79,
+        "best_epoch_mAP50": 8,
+        "best_epoch_mAP50_95": 19,
+        "seconds_per_epoch": 109.0,
+        "manifest": "runs/C_blind_negatives/manifest.json",
+        "results_csv": "runs/C_blind_negatives/results.csv"
+      }
+    }
+  },
+  "stability": {
+    "baseline": {
+      "mean": 0.8404,
+      "sd": 0.04,
+      "min": 0.6119,
+      "max": 0.8902,
+      "note": "epochs >=10 (post-warmup)"
+    },
+    "A_contam_matched": {
+      "mean": 0.8377,
+      "sd": 0.0526,
+      "min": 0.5359,
+      "max": 0.8916,
+      "note": "epochs >=10 (post-warmup)"
+    },
+    "A_contam_asitwas": {
+      "mean": 0.6824,
+      "sd": 0.171,
+      "min": 0.1698,
+      "max": 0.8908,
+      "note": "epochs >=10 (post-warmup)"
+    },
+    "A_contam_fabval": {
+      "mean": 0.7058,
+      "sd": 0.1547,
+      "min": 0.1541,
+      "max": 0.8815,
+      "note": "epochs >=10 (post-warmup)"
+    },
+    "A_contam_heavy": {
+      "mean": 0.0417,
+      "sd": 0.0363,
+      "min": 0.0047,
+      "max": 0.1939,
+      "note": "epochs >=10 (post-warmup)"
+    },
+    "B_sliding_window": {
+      "mean": 0.7841,
+      "sd": 0.0516,
+      "min": 0.5572,
+      "max": 0.8705,
+      "note": "epochs >=10 (post-warmup)"
+    },
+    "C_blind_negatives": {
+      "mean": 0.8103,
+      "sd": 0.0315,
+      "min": 0.6562,
+      "max": 0.8642,
+      "note": "epochs >=10 (post-warmup)"
+    },
+    "pilot_mosaic1": {
+      "mean": 0.7961,
+      "sd": 0.0378,
+      "min": 0.6103,
+      "max": 0.8651,
+      "note": "epochs >=10 (post-warmup)"
+    }
+  },
+  "epoch_cap_pilot": {
+    "mosaic0": {
+      "converged_epoch": 19,
+      "best_mAP50": 0.8902,
+      "still_improving_at_end": false
+    },
+    "mosaic1": {
+      "converged_epoch": 37,
+      "best_mAP50": 0.8672,
+      "still_improving_at_end": false
+    },
+    "recommended_cap": 120,
+    "cap_taken_from": "mosaic1",
+    "stopping_rule": "Ultralytics patience=60 counts from best FITNESS (mAP50-95), not mAP50 \u2014 the two can peak >20 epochs apart. Cap taken from the SLOWER (mosaic=1) arm per brief \u00a71b; refuses to recommend if either arm was still improving (best-fitness-epoch >= 80% of total run length) when it stopped. n=1 fold/seed; margin added (ceiling 120 vs mosaic1's natural stop at 97) since other folds/seeds may converge later.",
+    "seconds_per_epoch": 104.2,
+    "projected_grid_gpu_days": 38.1,
+    "projected_grid_note": "264 cells x 120-epoch ceiling x ~104s/epoch on ONE RTX 4060. NOT run (brief \u00a70.1) \u2014 projection only."
+  },
+  "notes": [
+    "All 8 planned runs complete; the 264-cell grid was NOT run (brief \u00a70.1).",
+    "A_contam_heavy's absolute scores are confounded by a much smaller training set (1224 tiles/4 slides vs 5300+/10+ slides elsewhere); the fabricated-vs-honest DELTA on that run is not confounded by this since both evals share the same trained weights.",
+    "The original leaked 0.705/0.780 scores are NOT reproduced by contaminated_fabval or contaminated_heavy \u2014 the original run's fabricated .ndpa generation is unknown (S.3152_26_A3FD_1 alone has 4 different generated copies on disk: 301/131/146/298 boxes); our controlled numbers stand on their own, not as a replication.",
+    "Ablation A's causal comparison is 'clean' vs 'contaminated_matched' (paired label-swap, identical slides/tiler/negatives). 'contaminated_asitwas' is confounded (+3 training slides) and reports realistic-magnitude fabrication, not a causal estimate.",
+    "One seed per condition throughout (brief-permitted); a delta of ~0.02 (ablation B, C) should not be treated as distinguishable from run-to-run noise on that basis alone."
+  ]
+}

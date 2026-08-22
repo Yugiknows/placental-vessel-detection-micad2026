@@ -1,0 +1,62 @@
+{
+  "run": "A_contam_fabval",
+  "condition": "A_contam_fabval",
+  "seed": 0,
+  "tiling_hash": "7b191fa9e02e",
+  "tiling_method": "vessel_centered_v3",
+  "held_out_slide": "BFD_1",
+  "held_out_rationale": "originally clean \u2014 never fabricated, never recovered; 334 eval positives at all 3 scales",
+  "train_slides": [
+    "A2FD_1",
+    "A2FD_1_S.2058_26",
+    "A3_FD_1",
+    "S.2016_26_A2_FD_1",
+    "S.2016_26_A3_FD_1",
+    "S.2723_26_A2_FD_1",
+    "S.2723_26_BFD_1",
+    "S.2723_26_CFD_1",
+    "S.2723_26_E_FD_1",
+    "S.2_723_26_A3_FD_1",
+    "S.3508_26_EFD_1",
+    "S.3508_26_GFD_2"
+  ],
+  "val_slides": [
+    "BFD_1"
+  ],
+  "n_train_images": 5511,
+  "n_val_images": 489,
+  "scales": [
+    "10x",
+    "20x",
+    "40x"
+  ],
+  "note_5x": "EXCLUDED per brief",
+  "arch": "single_allmag",
+  "mosaic": 0.0,
+  "dataset_yaml": "data.yaml",
+  "git_commit": "no_git_repo",
+  "ultralytics": "8.4.91",
+  "python": "3.12.10",
+  "command": "python run_ablations.py --run A_contam_fabval",
+  "config": {
+    "epochs": 300,
+    "imgsz": 1024,
+    "batch": 16,
+    "device": 0,
+    "seed": 0,
+    "patience": 60,
+    "workers": 8,
+    "deterministic": true,
+    "mosaic": 0.0,
+    "mixup": 0.0,
+    "copy_paste": 0.0,
+    "hsv_h": 0.005,
+    "hsv_s": 0.05,
+    "hsv_v": 0.1,
+    "project": "D:\\windows_gpu_migration\\Yolo11_training-yolo11_train_seg_classify_v2\\handoff\\runs",
+    "name": "A_contam_fabval",
+    "exist_ok": true,
+    "verbose": false,
+    "plots": false
+  }
+}

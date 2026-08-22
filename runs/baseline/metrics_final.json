@@ -1,0 +1,14 @@
+{
+  "run": "baseline",
+  "held_out_slide": "BFD_1",
+  "mAP50": 0.89017,
+  "mAP50_at_epoch": 17,
+  "mAP50_95": 0.60987,
+  "mAP50_95_at_epoch": 19,
+  "precision_at_best_mAP50": 0.89313,
+  "recall_at_best_mAP50": 0.81115,
+  "epochs_run": 79,
+  "seconds_per_epoch": 100.2455505419381,
+  "seed": 0,
+  "mosaic": 0.0
+}

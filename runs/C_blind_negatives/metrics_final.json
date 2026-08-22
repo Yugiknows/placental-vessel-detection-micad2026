@@ -1,0 +1,14 @@
+{
+  "run": "C_blind_negatives",
+  "held_out_slide": "BFD_1",
+  "mAP50": 0.86795,
+  "mAP50_at_epoch": 8,
+  "mAP50_95": 0.60199,
+  "mAP50_95_at_epoch": 19,
+  "precision_at_best_mAP50": 0.85729,
+  "recall_at_best_mAP50": 0.78638,
+  "epochs_run": 79,
+  "seconds_per_epoch": 109.02475549299506,
+  "seed": 0,
+  "mosaic": 0.0
+}

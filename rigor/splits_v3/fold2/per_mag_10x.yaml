@@ -1,0 +1,21 @@
+path: C:\placenta_ssd\tiles_v3
+train: D:\windows_gpu_migration\Yolo11_training-yolo11_train_seg_classify_v2\rigor\splits_v3\fold2\per_mag_10x_train.txt
+val: D:\windows_gpu_migration\Yolo11_training-yolo11_train_seg_classify_v2\rigor\splits_v3\fold2\per_mag_10x_val.txt
+nc: 1
+names:
+- blood_vessel
+_arch: per_mag_3x
+_scale: 10x
+_fold: 2
+_held_out_slide: BFD_1
+_train_slides:
+- A2FD_1
+- A2FD_1_S.2058_26
+- S.2016_26_A2_FD_1
+- S.2723_26_A2_FD_1
+- S.2723_26_BFD_1
+- S.2723_26_CFD_1
+- S.2723_26_E_FD_1
+- S.2_723_26_A3_FD_1
+- S.3508_26_EFD_1
+- S.3508_26_GFD_2

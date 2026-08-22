@@ -1,0 +1,100 @@
+# slides_clean.yaml — THE FROZEN CLEAN SLIDE ALLOW-LIST (constraint C2)
+#
+# STATUS: PROPOSED, NOT RATIFIED. `confirmed: false` blocks every downstream
+# script (loso_splits, run manifest, trainer, evaluator). Nothing will run
+# until a human sets `confirmed: true` and fills `confirmed_by`.
+#
+# UPDATE 2026-07-10: the raw slides + their .ndpa were located at
+# D:\PLACENTA SLIDES and every .ndpa was re-audited (rigor/contamination_audit.py)
+# and cross-checked against the scale gates (rigor/annotation_scale_report.py).
+# This RECOVERED 2 of the 5 previously-excluded slides (the user re-annotated
+# them by hand: clean .ndpa dated 07-09/07-10, no machine signature) and turned
+# up 4+ clean slides never in the original 12. Every clean slide yields
+# 10x/20x/40x annotations (see BLOCKERS.md B8 for the per-scale table).
+#
+# DO NOT add a slide here without a CLEAN verdict from contamination_audit AND a
+# human confirming the .ndpa is their own hand annotation (recent clean files
+# are trusted on that basis, not on date).
+# DO NOT let any script fall back to "all slides" if this file is missing.
+
+confirmed: true
+confirmed_by: "yugesh (authorised in session, 2026-07-11)"
+confirmed_note: >-
+  Ratified on this evidence, not by assumption:
+   (1) every .ndpa listed below returns CLEAN from rigor/contamination_audit.py
+       — no <predict> tags, no machine-generated titles (blood_vessel_40x etc.);
+   (2) the user confirmed these are their own hand annotations (they re-annotated
+       A2FD_1_S.2058_26 and S.2723_26_A2_FD_1 by hand, recovering two slides
+       previously written off as permanently lost);
+   (3) the three slides promoted from candidate_add (S.3508_26_GFD_2,
+       S.2723_26_BFD_1, S.2723_26_E_FD_1) each carry a clean slide-side .ndpa and
+       yield tiles at every core scale.
+  n = 11 LOSO slides. Exact two-sided Wilcoxon floor at n=11 is p_min = 0.001,
+  vs 0.0078 at n=8 — the paper's central interaction test now has real headroom.
+  The three permanently-contaminated slides remain excluded; no clean .ndpa for
+  them exists anywhere on the drive.
+
+# ── Admissible slides: CLEAN .ndpa present on D:\PLACENTA SLIDES ──────────────
+# annots = boxes in the clean source; (40x/20x/10x) = how many fall in each
+# scale gate. All are re-tileable at the core grid from source truth.
+include:
+  # originally-clean corpus slides, now positively re-verified against source
+  - S.2_723_26_A3_FD_1    # 1001 annots (898/917/103)
+  - S.2016_26_A2_FD_1     #   55 annots ( 14/ 41/ 41)
+  - A2FD_1                #   95 annots ( 45/ 77/ 50)
+  - BFD_1                 #  176 annots (138/173/ 38)
+  - S.3508_26_EFD_1       #   17 annots (  0/  6/ 17)
+  - S.2723_26_CFD_1       #   10 annots (  7/  9/  3)
+  # RECOVERED — were excluded as 100% model-generated; user re-annotated by hand
+  - A2FD_1_S.2058_26      #  200 annots (132/176/ 68)  clean .ndpa in A Files/
+  - S.2723_26_A2_FD_1     #   27 annots (  4/ 17/ 23)  clean .ndpa in A Files/
+  # PROMOTED from candidate_add on ratification — clean .ndpa, tiles at all scales
+  - S.3508_26_GFD_2       #  287 annots ( 65/227/222)
+  - S.2723_26_BFD_1       #  165 annots ( 20/101/145)
+  - S.2723_26_E_FD_1      #  145 annots ( 36/110/109)
+
+# S.3508_26_JFD_2 is intentionally NOT here: it was in the original clean corpus
+# (45 baked 10x tiles) but NO .ndpa exists anywhere on the drive, so it cannot be
+# re-tiled or re-verified from source. Decide: keep its existing baked tiles
+# (they descend from clean vessel-centered tiling) or drop it for consistency.
+
+# ── New clean slides available to ADD (raise n / restore statistical power) ───
+# Not in the original 12. Clean .ndpa on disk, all yield core-grid annotations.
+# Promote into `include` after you confirm the annotations are yours.
+candidate_add:
+  S.3508_26_GFD_2:  {annots: 287, per_scale: [65, 227, 222]}   # substantial
+  S.2723_26_BFD_1:  {annots: 165, per_scale: [20, 101, 145]}   # substantial
+  S.2723_26_E_FD_1: {annots: 145, per_scale: [36, 110, 109]}   # substantial
+  E1FD_1:           {annots:  38, per_scale: [ 1,  19,  37]}
+  S.1471_26_FFD_1:  {annots:   3, per_scale: [ 0,   0,   3]}   # tiny
+  DFD_1_S.2016_26:  {annots:   2, per_scale: [ 0,   0,   2]}   # tiny
+  S.1471_26_DFD_1:  {annots:   2, per_scale: [ 1,   1,   1]}   # tiny
+  # E_2_DvH: 1 annotation — too small to bother
+
+# ── Permanently lost: no clean .ndpa anywhere on the drive ───────────────────
+# Every .ndpa for these is 100% model-generated (predict-tagged) or absent.
+# Only re-annotation from scratch would recover them.
+exclude:
+  S.3152_26_A3FD_1:
+    reason: ndpa_100pct_model_generated
+    note: >-
+      Slide-adjacent .ndpa in both A Files/ and Placenta cases/ are GENERATED
+      (301 predict-tagged boxes each). Was 70% of fold 0's 10x val set.
+  A3_FD_1:
+    reason: ndpa_100pct_model_generated
+    note: No clean .ndpa found; only GENERATED copies under placenta/annotaions/.
+  S.2016_26_A3_FD_1:
+    reason: ndpa_100pct_model_generated
+    note: No clean .ndpa found; only GENERATED copies under placenta/annotaions/.
+
+# ── Trusted model for labelImg-assisted pre-annotation ───────────────────────
+# blood_vessel_best_BACKUP.pt is dated 2026-06-05, before the first
+# contamination write (2026-06-16), so its predictions cannot contain
+# fabricated boxes. rigor/preannotate_labelimg.py accepts ONLY this model (or
+# one carrying a .trusted marker) and refuses every runs/train checkpoint.
+trusted_preannotation_model: >-
+  ../Yolo11_training-yolo11_train_seg_classify/blood_vessel_best_BACKUP.pt
+
+# ── Raw data locations (found 2026-07-10) ────────────────────────────────────
+slides_root: "D:/PLACENTA SLIDES"
+runtime: "openslide-python 1.4.6 / libopenslide 4.0.1; scipy 1.18.0; CUDA available"

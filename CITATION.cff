@@ -1,0 +1,48 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the paper below."
+
+title: "Fabricated Ground Truth Corrupts the Score, Not the Model: Auditing and Hardening a Whole Slide Corpus for Placental Vessel Detection"
+
+abstract: >-
+  Code artifact for the MICAD 2026 paper. Contains the tiling, corpus-integrity
+  and ablation pipeline (constraints C1-C5) and the archived records of the
+  eight ablation runs. The whole-slide images and the derived tile corpus are
+  NOT included in this repository; see README.md for how to request access.
+type: software
+license: MIT
+
+authors:
+  - family-names: Sarikonda
+    given-names: Yugesh
+  - family-names: Gurusamy
+    given-names: Umamaheswari
+  - family-names: Ravikumar
+    given-names: Divya
+  - family-names: Dumpala
+    given-names: "Sai Mounya"
+
+# TODO — DOI NOT YET ASSIGNED. The DOI is not issued until publication.
+# Replace both occurrences once the MICAD 2026 proceedings are published.
+doi: "10.0000/TODO-REPLACE-WITH-REAL-DOI"
+
+preferred-citation:
+  type: conference-paper
+  title: "Fabricated Ground Truth Corrupts the Score, Not the Model: Auditing and Hardening a Whole Slide Corpus for Placental Vessel Detection"
+  authors:
+    - family-names: Sarikonda
+      given-names: Yugesh
+    - family-names: Gurusamy
+      given-names: Umamaheswari
+    - family-names: Ravikumar
+      given-names: Divya
+    - family-names: Dumpala
+      given-names: "Sai Mounya"
+  conference:
+    name: "MICAD 2026, Medical Imaging and Computer-Aided Diagnosis"
+  collection-title: "Springer Lecture Notes in Electrical Engineering"
+  collection-type: series
+  publisher:
+    name: Springer
+  year: 2026
+  # TODO — DOI NOT YET ASSIGNED.
+  doi: "10.0000/TODO-REPLACE-WITH-REAL-DOI"

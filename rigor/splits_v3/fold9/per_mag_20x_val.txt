@@ -1,0 +1,11 @@
+C:\placenta_ssd\tiles_v3\training_data_20x\positives\images\S.3508_26_EFD_1_20x_0030831_0032219.png
+C:\placenta_ssd\tiles_v3\training_data_20x\positives\images\S.3508_26_EFD_1_20x_0035143_0040770.png
+C:\placenta_ssd\tiles_v3\training_data_20x\positives\images\S.3508_26_EFD_1_20x_0059824_0058124.png
+C:\placenta_ssd\tiles_v3\training_data_20x\positives\images\S.3508_26_EFD_1_20x_0072352_0023083.png
+C:\placenta_ssd\tiles_v3\training_data_20x\positives\images\S.3508_26_EFD_1_20x_0072881_0022545.png
+C:\placenta_ssd\tiles_v3\training_data_20x\positives\images\S.3508_26_EFD_1_20x_0123829_0021412.png
+C:\placenta_ssd\tiles_v3\training_data_20x\negatives\images\S.3508_26_EFD_1_20x_0053248_0033792.png
+C:\placenta_ssd\tiles_v3\training_data_20x\negatives\images\S.3508_26_EFD_1_20x_0071680_0039936.png
+C:\placenta_ssd\tiles_v3\training_data_20x\negatives\images\S.3508_26_EFD_1_20x_0071680_0049152.png
+C:\placenta_ssd\tiles_v3\training_data_20x\negatives\images\S.3508_26_EFD_1_20x_0111616_0044032.png
+C:\placenta_ssd\tiles_v3\training_data_20x\negatives\images\S.3508_26_EFD_1_20x_0140288_0018432.png

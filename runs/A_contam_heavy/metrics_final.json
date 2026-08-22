@@ -1,0 +1,24 @@
+{
+  "run": "A_contam_heavy",
+  "held_out_slide": "BFD_1",
+  "mAP50": 0.19394,
+  "mAP50_at_epoch": 11,
+  "mAP50_95": 0.03625,
+  "mAP50_95_at_epoch": 11,
+  "precision_at_best_mAP50": 0.26808,
+  "recall_at_best_mAP50": 0.3452,
+  "epochs_run": 71,
+  "seconds_per_epoch": 27.746615037112168,
+  "seed": 0,
+  "mosaic": 0.0,
+  "fabricated_val": {
+    "eval_slide": "S.3152_26_A3FD_1",
+    "eval_tiles": 216,
+    "labels": "MACHINE-GENERATED (fabricated) \u2014 NOT valid ground truth",
+    "mAP50": 0.4568870451052477,
+    "mAP50_95": 0.19098091675521908,
+    "precision": 0.5872072510777082,
+    "recall": 0.4541984732824427,
+    "interpretation": "this model was trained PREDOMINANTLY ON FABRICATED LABELS (4 slides, single 10xv25 generation). A high score here would be self-consistency \u2014 the model reproducing this generator's own invented boxes on a genuinely held-out slide from the SAME generation. Compare with the honest BFD_1 score above."
+  }
+}

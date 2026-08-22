@@ -1,0 +1,41 @@
+# ── Patient data: whole-slide images and annotations ─────────────────────────
+# These are patient specimens. Consent covers the named research only and does
+# NOT authorise public deposition. They must never enter this repository.
+*.ndpi
+*.ndpa
+*.svs
+*.tif
+*.tiff
+
+# ── Model weights ───────────────────────────────────────────────────────────
+*.pt
+*.pth
+*.onnx
+runs/**/weights/
+
+# ── Tile image directories (the derived corpus; not redistributable) ────────
+tiles_v3/
+training_data_*/
+tiles/
+tiles_contaminated/
+tiles_contam_heavy/
+tiles_blind_neg/
+training_clean/
+**/positives/images/
+**/negatives/images/
+figure_crops/
+
+# ── Quarantined material, kept out of the published tree ────────────────────
+_EXCLUDED_FROM_RELEASE/
+
+# ── Python ──────────────────────────────────────────────────────────────────
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# ── OS cruft ────────────────────────────────────────────────────────────────
+# This repository was assembled on macOS over an exFAT volume, which generates
+# AppleDouble sidecar files prolifically.
+.DS_Store
+._*
