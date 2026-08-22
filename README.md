@@ -237,8 +237,9 @@ technical: two slides contain no 5x tiles at all, which leaves average precision
 for those folds and breaks the paired test. The scale is thin everywhere, at 54 positive and
 59 negative tiles across all 11 slides.
 
-Access to the verified tiles is granted on request through the data governance office of PSG
-Institute of Medical Sciences and Research.
+Requests for access to the verified tiles are reviewed by the data governance office of PSG
+Institute of Medical Sciences and Research, which releases what it holds under a data sharing
+agreement.
 
 ## A note on what the audit does not cover
 
