@@ -3,7 +3,7 @@
 Code for the MICAD 2026 paper *Fabricated Ground Truth Corrupts the Score, Not the Model:
 Auditing and Hardening a Whole Slide Corpus for Placental Vessel Detection*.
 
-Yugesh Sarikonda, Umamaheswari Gurusamy, Divya Ravikumar, Sai Mounya Dumpala.
+Yugesh Sarikonda^1, Umamaheswari Gurusamy^2, Divya Ravikumar^2, Sai Mounya Dumpala^3.
 Springer Lecture Notes in Electrical Engineering. DOI: TODO on publication.
 
 ---
